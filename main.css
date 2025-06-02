@@ -25,6 +25,7 @@ footer {
 
 a {
     text-decoration: none;
+    transition: 3s 1s;
 }
 
 a:link {
@@ -50,6 +51,7 @@ a:hover {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: darkolivegreen;
+    transition: 5s;
 }
 
 a:active {
