@@ -15,12 +15,17 @@ header {
 main {
     margin: 0px;
     font-family: Arial;
+    margin: 10px 20px 45px;
 }
 
 footer {
     background-color: bisque;
     color: brown;
     font-family: Arial;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 
 a {
