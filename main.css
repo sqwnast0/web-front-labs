@@ -65,7 +65,7 @@ a:active {
 }
 
 div.menu {
-    border: 1px solid #00880080;
+    border: 6px solid #00880080;
     border-radius: 5px;
     width: 300px;
     margin: 0 auto;
@@ -81,4 +81,14 @@ h1 {
     text-align: center;
     font-style: italic;
     font-family: 'Times New Roman', Times, serif;
+}
+
+div.text15{
+    margin: 20px;
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 7px;
+    width: 500px;
+    height: 200px;
+    overflow: auto;
 }
