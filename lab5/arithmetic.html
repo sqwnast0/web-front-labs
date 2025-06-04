@@ -17,6 +17,16 @@
                  let result = a + b;
                  alert('Сумма ' + a + ' и ' + b + ' равна ' + result);
              }
+
+             function showAuthor() {
+                 let author = "Автор страницы:\nЧикирисова Анастасия Вячеславовна";
+                 alert(author);
+             }
+ 
+             function showSentence() {
+                 let sentence = "Приветствую Вас на моей странице!\nВсё получится!!!";
+                 alert(sentence);
+             }             
          </script>
          <style>
              .message {
@@ -31,21 +41,27 @@
                  text-align: center;
                  line-height: 40px;
              }
+             header {
+                 cursor: pointer;
+             }
+             footer {
+                 cursor: pointer;
+             }             
          </style>
      </head>
       
      <body>
-         <header>
+         <header onclick="showAuthor()">
              НГТУ, ФБ, Лабораторная работа 5
              <hr>
          </header>
   
          <main>
              <div class="message" onclick="showSum()">Сколько будет 5154+7891?</div>
-             <div class="message">Узнать, кто автор страницы</div>
+             <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
          </main>
   
-         <footer>
+         <footer class="footer" ondblclick="showSentence()">
              <hr>
              &copy; Чикирисова Анастасия, ФБИ-33, 2 курс, 2025
          </footer>
