@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+ <html lang="ru">
+ <head>
+     <meta charset="UTF-8">
+     <title>Чикирисова Анастасия Вячеславовна. Лабораторная 4</title>
+     <link rel="stylesheet" href="../main.css">
+     <link rel="icon" href="../favicon.ico">
+     <style>
+         .tag-cloud {
+             width: 100%;
+             height: 100%;
+             margin: 0;
+             padding: 0;
+         }
+         .tag {
+             position: absolute;
+             padding: 5px 10px;
+             font-weight: bold;
+             color: white;
+             border-radius: 8px;
+             transition: all 0.3s ease;
+             cursor: pointer;
+             z-index: 1;
+         }
+ 
+         .tag:hover {
+             transform: scale(1.5) rotate(0deg);
+             text-shadow: 0 0 15px rgb(0, 0, 0);
+             z-index: 100;
+         }
+     </style>
+ </head>
+ <body>
+     <header>
+         НГТУ, ФБ, Лабораторная работа 4
+         <hr>
+     </header>
+ 
+     <main>
+         <div class="tag-cloud">
+             <span class="tag" style="top: 20%; left: 10%; font-size: 64px; color: rgb(55, 46, 193); font-family: Tahoma; transform: rotate(25deg);">NETI</span>
+             <span class="tag" style="top: 10%; left: 5%; font-size: 80px; color: rgb(42, 199, 31); font-family: Tahoma; transform: rotate(-15deg);">NSTU</span>
+             <span class="tag" style="top: 20%; left: 60%; font-size: 68px; color: rgb(188, 10, 99); font-family: Tahoma; transform: rotate(10deg);">Anastasia</span>
+             <span class="tag" style="top: 40%; left: 70%; font-size: 65px; color: rgb(39, 50, 51); font-family: Tahoma; transform: rotate(-10deg);">Love</span>
+             <span class="tag" style="top: 35%; left: 30%; font-size: 54px; color: rgb(54, 41, 54); font-family: Georgia; transform: rotate(5deg);">Pure</span>
+             <span class="tag" style="top: 40%; left: 65%; font-size: 56px; color: darkgreen; font-family: Verdana; transform: rotate(-20deg);">Demure</span>
+             <span class="tag" style="top: 50%; left: 10%; font-size: 67px; color: rgb(128, 156, 16); font-family: 'Times New Roman'; transform: rotate(30deg);">Success</span>
+             <span class="tag" style="top: 60%; left: 75%; font-size: 54px; color: rgb(120, 71, 15); font-family: Cambria; transform: rotate(-25deg);">Infinity</span>
+             <span class="tag" style="top: 65%; left: 65%; font-size: 40px; color: rgb(83, 132, 125); font-family: Comic Sans MS; transform: rotate(15deg);">Delicacy</span>
+             <span class="tag" style="top: 15%; left: 80%; font-size: 49px; color: rgb(232, 14, 14); font-family: Geneva; transform: rotate(0deg);">Sweet</span>
+             <span class="tag" style="top: 70%; left: 5%; font-size: 51px; color: rgb(113, 110, 94); font-family: Trebuchet MS; transform: rotate(-5deg);">Sunshine</span>
+             <span class="tag" style="top: 75%; left: 50%; font-size: 42px; color: rgb(162, 120, 192); font-family: Arial; transform: rotate(10deg);">Lamborghiny</span>
+             <span class="tag" style="top: 20%; left: 40%; font-size: 53px; color: rgb(118, 167, 203); font-family: Cambria; transform: rotate(-10deg); font-style: italic;">Freedom</span>
+             <span class="tag" style="top: 70%; left: 10%; font-size: 56px; color: rgb(207, 66, 66); font-family: 'Courier New'; transform: rotate(15deg);">Smile</span>
+             <span class="tag" style="top: 55%; left: 75%; font-size: 44px; color: rgb(127, 140, 186); font-family: Georgia; transform: rotate(-35deg);">Mom</span>
+             <span class="tag" style="top: 75%; left: 30%; font-size: 58px; color: rgb(228, 12, 225); font-family: Tahoma; transform: rotate(20deg);">Dad</span>
+             <span class="tag" style="top: 35%; left: 45%; font-size: 72px; color: rgb(0, 110, 255); font-family: Verdana; transform: rotate(-30deg);">Hi</span>
+         </div>
+ 
+         <script>
+             const names = [
+                 "NETI", "NSTU", "Anastasia", "Love", "Pure", "Demure", "Success",
+                 "Infinity", "Delicacy", "Sweet", "Sunshine", "Lamborghiny", "Freedom",
+                 "Smile", "Mom", "Dad", "Hi"
+             ];
+         
+             const fonts = ['Arial', 'Verdana', 'Georgia', 'Courier New', 'Tahoma', 'Impact', 'Times New Roman'];
+             const colors = ['#ff007f', '#7f00ff', '#00bfff', '#00ff7f', '#ff4500', '#ffd700', '#8a2be2'];
+         
+             const tagCloud = document.getElementById("tagCloud");
+         
+             names.forEach(name => {
+                 const tag = document.createElement("div");
+                 tag.classList.add("tag");
+                 tag.textContent = name;
+         
+                 const size = Math.floor(Math.random() * 24 + 16);
+                 const top = Math.random() * 85;
+                 const left = Math.random() * 85;
+                 const rotate = Math.floor(Math.random() * 60 - 30);
+         
+                 tag.style.top = `${top}%`;
+                 tag.style.left = `${left}%`;
+                 tag.style.fontSize = `${size}px`;
+                 tag.style.color = colors[Math.floor(Math.random() * colors.length)];
+                 tag.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+                 tag.style.transform = `rotate(${rotate}deg)`;
+         
+                 tagCloud.appendChild(tag);
+             });
+         </script>
+     </main>
+ 
+     <footer>
+         <hr>
+         &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+     </footer>
+ </body>
+ </html>
