@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Чикирисова Анастасия Вячеславовна. Новости - ОМЗ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="favicon-16x16.png" />
+  <link rel="icon" href="favicon-32x32.png" />
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .side-nav {
+      width: 220px;
+      background-color: #f4f4f4;
+      padding-top: 100px;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 12px 20px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .side-nav a.active,
+    .side-nav a:hover {
+      background-color: #1a3e72;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #1a3e72;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .news-card {
+      background-color: #f0f5ff;
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .news-date {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .news-title {
+      color: #1a3e72;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .news-short {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .news-full-text {
+      display: none;
+      padding-top: 15px;
+      border-top: 1px solid #ccc;
+      margin-top: 15px;
+      color: #555;
+    }
+
+    .show-button {
+      background-color: #1a3e72;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+
+    .show-button:hover {
+      background-color: #2a4e82;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-content">
+  <header class="site-header">
+    <div class="nav-container">
+      <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo" />
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Новости компании ОМЗ</h1>
+
+    <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+    <div class="news-card">
+      <p class="news-date"><i>01.05.2025</i></p>
+      <h2 class="news-title">ОМЗ заключила контракт с Росатомом</h2>
+      <p class="news-short">Подписано соглашение на поставку оборудования для 2 новых АЭС в России и Казахстане.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        Контракт между ОМЗ и Росатомом предусматривает производство и поставку реакторного оборудования, ёмкостей и сопутствующих систем. 
+        Работы будут вестись на базе Ижорских заводов. Контракт рассчитан на 3 года.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div> 
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+
+        <div class="news-card">
+      <p class="news-date"><i>15.05.2025</i></p>
+      <h2 class="news-title">ОМЗ запускает новое производство</h2>
+      <p class="news-short">В Московской области началось строительство нового высокотехнологичного цеха для атомной отрасли.</p>
+      <button class="show-button" onclick="toggleText(this)">Показать</button>
+      <p class="news-full-text">
+        ОМЗ инвестирует 2 млрд рублей в строительство нового производственного комплекса. Новый цех будет оборудован роботизированными линиями
+        и позволит увеличить объёмы выпуска оборудования для атомных станций на 40%. Запуск ожидается в 2026 году.
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+  </footer>
+</div>
+
+<div class="side-nav">
+  <a href="index.html">О компании</a>
+  <a href="news.html" class="active">Новости</a>
+  <a href="currency.html">Курс валют</a>
+  <a href="contacts.html">Контактные данные</a>
+  <a href="video.html">Видео</a>
+</div>
+
+<script>
+  function toggleText(button) {
+    const text = button.nextElementSibling;
+    if (text.style.display === "block") {
+      text.style.display = "none";
+      button.textContent = "Показать";
+    } else {
+      text.style.display = "block";
+      button.textContent = "Скрыть";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чикирисова Анастасия Вячеславовна. Курс валют - ОМЗ</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        .box {
+            margin-bottom: 30px;
+            background-color: #1a3e72;
+            border-radius: 20px;
+            margin-top: 50px;
+            padding: 40px 50px;
+            box-shadow: 10px 5px 5px whitesmoke;
+            margin-left: 100px;
+            margin-right: 90px;
+            color: white;
+        }
+        .box2 {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        #convertToRubBtn, #convertToCHFBtn {
+            background-color: #ffffff;
+            width: 210px;
+            height: 40px;
+            box-shadow: 10px 5px 5px #003366;
+            font-size: 14px;
+            font-family: 'Montserrat';
+            font-weight: bold;
+            border-radius: 10px;
+        }
+        #sum {
+            width: 250px;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #1a3e72;
+        }
+        h2 {
+            color: white;
+            text-align: center;
+        }
+        #output {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 18px;
+            color: white;
+        }
+        canvas {
+            width: 90%;
+            height: 500px;
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="main-content">
+    <header class="site-header">
+        <div class="nav-container">
+            <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo">
+        </div>
+    </header>
+
+    <main>
+        <div class="box">
+            <h2>Конвертер валют (RUB ⇄ CHF)</h2>
+            <div class="box2">
+                <input type="number" id="sum" placeholder="Введите сумму" min="0">
+                <button onclick="convertToRub()" id="convertToRubBtn">CHF → RUB</button>
+                <button onclick="convertToCHF()" id="convertToCHFBtn">RUB → CHF</button>
+            </div>
+            <div id="output"></div>
+        </div>
+
+        <h1>График курса CHF за последние 30 дней</h1>
+        <canvas id="CHFChart"></canvas>
+    </main>
+
+    <footer>
+        &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+    </footer>
+</div>
+
+<div class="side-nav">
+    <a href="index.html">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="currency.html" class="active">Курс валют</a>
+    <a href="contacts.html">Контактные данные</a>
+    <a href="video.html">Видео</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    let kursCHF = 0;
+
+    async function downloadkursCHF() {
+        try {
+            const res = await fetch('https://www.cbr-xml-daily.ru/daily_json.js');
+            const data = await res.json();
+            kursCHF = data.Valute.CHF.Value;
+            document.getElementById('output').textContent = `Текущий курс: 1 CHF = ${kursCHF.toFixed(2)} RUB`;
+        } catch (error) {
+            console.error('Ошибка загрузки курса:', error);
+            document.getElementById('output').textContent = 'Ошибка загрузки курса. Попробуйте позже.';
+            document.getElementById('output').style.color = '#ff6b6b';
+        }
+    }
+
+    function convertToRub() {
+        const sum = document.getElementById('sum').value;
+        if (sum <= 0 || isNaN(sum)) {
+            document.getElementById('output').textContent = 'Введите положительное число';
+            document.getElementById('output').style.color = '#ff6b6b';
+            return;
+        }
+        const result = (sum * kursCHF).toFixed(2);
+        document.getElementById('output').textContent = `${sum} CHF = ${result} RUB`;
+        document.getElementById('output').style.color = 'white';
+    }
+
+    function convertToCHF() {
+        const sum = document.getElementById('sum').value;
+        if (sum <= 0 || isNaN(sum)) {
+            document.getElementById('output').textContent = 'Введите положительное число';
+            document.getElementById('output').style.color = '#ff6b6b';
+            return;
+        }
+        const result = (sum / kursCHF).toFixed(2);
+        document.getElementById('output').textContent = `${sum} RUB = ${result} CHF`;
+        document.getElementById('output').style.color = 'white';
+    }
+
+    function createChart() {
+        const dates = [];
+        const rates = [];
+        const today = new Date();
+
+        for (let i = 0; i < 30; i++) {
+            const date = new Date(today);
+            date.setDate(today.getDate() - (30 - i));
+            dates.push(date.toLocaleDateString('ru-RU'));
+            const randomRate = kursCHF * (0.95 + Math.random() * 0.1);
+            rates.push(parseFloat(randomRate.toFixed(2)));
+        }
+
+        const ctx = document.getElementById('CHFChart').getContext('2d');
+        const chart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: 'Курс CHF к RUB',
+                    data: rates,
+                    backgroundColor: '#1a3e72',
+                    borderColor: '#0d2b56',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: { display: true, text: 'Дата' },
+                        ticks: {
+                            autoSkip: true,
+                            maxRotation: 45,
+                            minRotation: 45
+                        }
+                    },
+                    y: {
+                        title: { display: true, text: 'Курс' },
+                        beginAtZero: false
+                    }
+                },
+                onClick: (e, activeEls) => {
+                    if (activeEls.length > 0) {
+                        const idx = activeEls[0].index;
+                        alert(`Дата: ${dates[idx]}\nКурс: 1 CHF = ${rates[idx]} RUB`);
+                        chart.data.datasets[0].backgroundColor = chart.data.datasets[0].backgroundColor.map(
+                            (color, i) => i === idx ? '#ffcc00' : '#1a3e72'
+                        );
+                        chart.update();
+                    }
+                }
+            }
+        });
+    }
+
+    window.onload = async function () {
+        await downloadkursCHF();
+        createChart();
+    };
+</script>
+</body>
+</html>

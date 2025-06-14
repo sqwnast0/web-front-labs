@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Чикирисова Анастасия Вячеславовна. Видео - ОМЗ</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="icon" href="favicon.ico" />
+  <link rel="icon" href="favicon-16x16.png" />
+  <link rel="icon" href="favicon-32x32.png" />
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    .side-nav {
+      width: 220px;
+      background-color: #f4f4f4;
+      padding-top: 100px;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 12px 20px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .side-nav a.active,
+    .side-nav a:hover {
+      background-color: #1a3e72;
+      color: white;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #1a3e72;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .video-block {
+      margin: 30px 0;
+      background-color: #f0f5ff;
+      padding: 30px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .youtube-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1a3e72;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    .youtube-button:hover {
+      background-color: #2a4e82;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-content">
+  <header class="site-header">
+    <div class="nav-container">
+      <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo" />
+    </div>
+  </header>
+
+  <div class="container">
+    <h1>Видео о компании ОМЗ</h1>
+
+    <div class="video-block">
+      <h2 style="color:#1a3e72;">Презентация ОМЗ</h2>
+      <iframe src="https://www.youtube.com/embed/KvKCggL-vag" allowfullscreen></iframe>
+      <br>
+      <a href="https://www.youtube.com/watch?v=KvKCggL-vag" target="_blank" class="youtube-button">
+        Смотреть на YouTube
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+  </footer>
+</div>
+
+<div class="side-nav">
+  <a href="index.html">О компании</a>
+  <a href="news.html">Новости</a>
+  <a href="currency.html">Курс валют</a>
+  <a href="contacts.html">Контактные данные</a>
+  <a href="video.html" class="active">Видео</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Чикирисова Анастасия Вячеславовна. Контакты - ОМЗ</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon-16x16.png">
+    <link rel="icon" href="favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .main-content {
+            flex: 1;
+        }
+        .side-nav {
+            width: 220px;
+            background-color: #f4f4f4;
+            padding-top: 100px;
+        }
+        .side-nav a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .side-nav a.active,
+        .side-nav a:hover {
+            background-color: #1a3e72;
+            color: white;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        h1, h2 {
+            color: #1a3e72;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            background-color: #f0f5ff;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .fixed-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            padding: 12px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            background-color: #1a3e72;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .fixed-button:hover {
+            background-color: #2a4e82;
+            transform: translateY(-3px);
+        }
+        .map-container {
+            height: 600px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-content">
+<header class="site-header">
+    <div class="nav-container">
+        <img src="OMZ-logo.gif" alt="Логотип ОМЗ" class="header-logo">
+    </div>
+</header>
+
+<div class="container">
+    <a id="top"></a>
+    <h1><u>Контактные данные ОМЗ</u></h1>
+
+    <div class="highlight">
+        <h2>Наш офис</h2>
+        <p><strong>Адрес:</strong><br>115035, Москва,<br>вн.тер.г. мун. округ Замоскворечье,<br>ул. Садовническая, д. 9А</p>
+        <p><strong>Телефон:</strong><br>+7 (495) 662-10-40</p>
+        <p><strong>E-mail:</strong><br>info@omz.tech</p>
+    </div>
+
+    <h2>Как нас найти</h2>
+    <div class="map-container">
+         <iframe src="https://yandex.ru/map-widget/v1/?oid=106442461133&ol=biz" frameborder="0"></iframe>
+    </div>
+</div>
+
+<a href="#top" class="fixed-button">↑</a>
+</div>
+
+<div class="side-nav">
+    <a href="index.html">О компании</a>
+    <a href="news.html">Новости</a>
+    <a href="currency.html">Курс валют</a>
+    <a href="contacts.html" class="active">Контактные данные</a>
+    <a href="video.html">Видео</a>
+</div>
+
+<footer class="footer">
+    &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+</footer>
+
+</body>
+</html>

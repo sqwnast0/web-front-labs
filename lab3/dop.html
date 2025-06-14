@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="../main.CSS">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        div.text5 div {
+            display: none;
+        }
+        div.text1 div {
+            display: none;
+        }
+        div.text2 div {
+            display: none;
+        }
+        div.text3 div {
+            display: none;
+        }
+        div.text4 div {
+            display: none;
+        }
+
+        h1:hover + div {
+            display: block;
+        }
+        .text5 {
+            width: 300px;
+            border: 3px groove;
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+            margin: 18px;
+            background-color: #d8d0d8;
+            box-shadow: 5px 5px 10px rgb(57, 2, 236);
+            color: rgb(17, 135, 186);
+            border-radius: 10px;
+            transition: 2s;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .text5:hover {
+            cursor: pointer;
+            text-decoration: double; 
+            box-shadow: 5px 5px 10px rgb(0, 0, 0); 
+            font-family: Georgia, 'Times New Roman', Times, serif; 
+            font-weight: bold; 
+            color: rgb(22, 0, 187);
+            background-color: rgb(97, 249, 249);
+            transition: 3s;
+            width: 400px;
+            border: 10px solid rgb(215, 252, 0);
+            vertical-align: top;
+            padding: 25px;
+            margin: 22px;
+            border-radius: 10px;
+            text-indent: 15px;
+            text-align: justify;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 15px;
+        }
+        .text1 {
+            width: 300px;
+            border: 5px double;
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #d8ef44;
+            box-shadow: 3px 3px 3px rgb(0, 0, 0); 
+            border-radius: 7px;
+            transition: 2s;
+            color: rgb(23, 102, 5);
+        }
+        .text1:hover {
+            cursor: pointer;
+            text-decoration: solid; 
+            box-shadow: 5px 5px 10px rgb(195, 170, 170); 
+            font-family: Arial, Helvetica, sans-serif; 
+            font-weight: bold; 
+            color: black;
+            background-color: rgb(206, 213, 213);
+            transition: 3s;
+            width: 500px;
+            border: 10px solid;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 5px;
+            text-indent: 15px;
+            text-align: justify;
+            font-size: 20px;
+        }
+        .text2 {
+            width: 300px;
+            border: 5px solid rgb(102, 187, 49);
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #1b8787;
+            color: rgb(209, 201, 192);
+            box-shadow: 7px 7px 7px rgb(97, 81, 178); 
+            border-radius: 7px;
+            transition: 2s;
+        }
+        .text2:hover {
+            cursor: pointer;
+            text-decoration: underline; 
+            box-shadow: 5px 5px 10px rgb(97, 142, 193); 
+            font-family: Arial, Helvetica, sans-serif; 
+            font-weight: normal; 
+            color: rgb(54, 54, 71);
+            background-color: rgb(101, 76, 136);
+            transition: 3s;
+            width: 380px;
+            border: 10px inset;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 10px;
+            text-indent: 30px;
+            text-align: justify;
+            font-size: 23px;
+        }
+        .text3 {
+            width: 300px;
+            border: 5px outset rgb(0, 0, 0);
+            display: inline-block;
+            vertical-align: top;
+            padding: 15px;
+            margin: 15px;
+            background-color: #ffffff;
+            color: rgb(49, 14, 188);
+            box-shadow: 7px 7px 7px rgb(37, 138, 111); 
+            border-radius: 7px;
+            transition: 2s;
+        }
+        .text3:hover {
+            cursor: pointer;
+            text-decoration: overline; 
+            box-shadow: 10px 10px 10px rgb(131, 108, 95); 
+            font-family: cursive;
+            font-weight: lighter; 
+            color: rgb(110, 48, 12);
+            background-color: rgb(61, 53, 50);
+            transition: 3s;
+            width: 460px;
+            border: 10px dashed;
+            vertical-align: top;
+            padding: 25px;
+            margin: 20px;
+            border-radius: 20px;
+            text-indent: 20px;
+            text-align: justify;
+            font-size: 23px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .text4 {
+            width: 320px;
+            border: 8px ridge rgb(0, 0, 0);
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+            margin: 18px;
+            background-color: #0dd1eb;
+            color: rgb(229, 130, 10);
+            box-shadow: 7px 7px 7px rgb(98, 236, 132); 
+            border-radius: 13px;
+            transition: 2s;
+        }
+        .text4:hover {
+            cursor: pointer;
+            text-decoration: double; 
+            box-shadow: 10px 15px 18px rgb(94, 93, 184); 
+            font-family: cursive;
+            font-weight: lighter; 
+            color: rgb(74, 6, 66);
+            background-color: rgb(121, 30, 225);
+            transition: 3s;
+            width: 280px;
+            border: 10px ridge;
+            vertical-align: top;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            text-indent: 10px;
+            text-align: justify;
+            font-size: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+    </style>
+</html>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 3
+        <hr>
+    </header>
+   
+    <main>
+        <div class="text5">
+            <h1>Абиссинская кошка</h1>
+            <div>
+                Абиссинская кошка обладает средним по длине телом с сильными мускулистыми конечностями. 
+                Голова округлой формы, у взрослых упитанных животных можно даже выделить щечки. 
+                Глаза правильной миндалевидной формы, окруженные светлой шерстью, но с темными линиями по контуру.
+            </div>
+        </div>
+        <div class="text1">
+            <h1>Австралийский мист</h1>
+            <div>
+                <b>Австралийский мист (или, иначе, австралийская дымчатая кошка)</b> – это первая порода, выведенная в Австралии. 
+                Ее селекцией в 1970-х годах занялась заводчица Труда Стрейд. В разведении участвовали бурманская и абиссинская кошки, 
+                а также их уличные сородичи. Кропотливая работа велась в течение десяти лет, 
+                а ее результатом стали котята пятнистого дымчатого окраса. От своих бурманских предков они получили вариативность окраса, 
+                от абиссинских — особую структуру волоса, а от беспородных родителей — пятнистый рисунок на шерстке. 
+                Название порода получила соответствующее — пятнистый мист. 
+                Однако спустя десять лет появилась еще одна вариация окраса — мраморная. 
+                В результате в 1998 году породу было решено переименовать, 
+                и тогда она получила абстрактное название — австралийский дымчатый мист.
+            </div>
+        </div>
+
+        <div class="text2">
+            <h1>Азиатская табби</h1>
+            <div>
+                Азиатская табби — восточная красавица родом из Великобритании. 
+                Эта порода относится к азиатской группе, поскольку была создана путем скрещивания бурманской кошки и персидской шиншиллы. 
+                От своих родителей она унаследовала лучшее: 
+                аккуратную внешность и прекрасный характер. 
+            </div>
+        </div>
+
+        <div class="text3">
+            <h1>Американская бурманская кошка</h1>
+            <div>
+                <i>Американская бурманская кошка отличается своей контактностью. 
+                    Это настолько добрая кошка, что порода считается наиболее подходящей для семей с маленькими детьми. 
+                    Их бурма старается опекать и ни в коем случае не причинит вреда. Контактность бурманской кошки позволяет ей 
+                    легко адаптироваться в доме, где уже есть питомцы. Это относится и к тем случаям, когда в одном доме живут 
+                    немолодые кошки или большие собаки. Заводчики отмечают, что добрый нрав бурмы передается котятам по наследству, 
+                    даже если происходит скрещивание кошки с другими породами.</i>
+                </div>
+            </div>
+    
+            <div class="text4">
+                <h1>Американская жесткошерстная кошка</h1>
+                <div>
+                    Американская жесткошерстная кошка, в отличие от многих своих сородичей, 
+                    не имеет аристократического прошлого. 
+                    Первый котенок с проволочной шерстью был обнаружен на нью-йоркской ферме в 1966 году. 
+                    Его родителями были обычные короткошерстные представители семейства.
+                </div>
+            </div>
+        </main>
+    
+        <footer>
+            <hr>
+            &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+        </footer>
+    </body>

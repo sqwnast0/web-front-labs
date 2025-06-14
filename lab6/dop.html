@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Чикирисова Анастасия Вячеславовна. Дополнительное задание</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon-16x16.png" type="image/x-icon">
+    <link rel="icon" href="favicon-32x32.png" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        main {
+            height: calc(100vh - 110px);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        }
+
+        #chart {
+            flex-grow: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            flex-wrap: nowrap;
+            margin: 0 auto;
+            padding: 20px 10px 10px 10px;
+            width: 95%;
+            max-width: 100%;
+            height: 500px;
+            border: 2px solid #9c4dcc;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .bar {
+            width: calc(100% / 32);
+            min-width: 15px;
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .min-temp {
+            background-color: #7b1fa2;
+            color: white;
+            width: 100%;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 4px 4px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .max-temp {
+            background-color: #e1bee7;
+            color: #4a148c;
+            width: 100%;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 0 0 4px 4px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight {
+            outline: 2px solid #ff9800;
+        }
+
+        .day-label {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #4a148c;
+            font-weight: bold;
+        }
+
+        #controls {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #e1bee7;
+            padding: 15px;
+            border: 1px solid #9c4dcc;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #4a148c;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #info {
+            margin-top: 15px;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #9c4dcc;
+            color: #4a148c;
+        }
+
+        input, button {
+            padding: 8px 12px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #9c4dcc;
+        }
+
+        button {
+            background-color: #9c4dcc;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #7b1fa2;
+        }
+
+        input {
+            width: 60px;
+            text-align: center;
+        }
+
+        .purple-min {
+            background-color: #ff9800 !important;
+            color: white !important;
+        }
+
+        .purple-max {
+            background-color: #ffc46d !important;
+            color: #4a148c !important;
+        }
+
+        strong {
+            color: #7b1fa2;
+        }
+
+        @media (max-width: 768px) {
+            .bar {
+                width: calc(100% / 35);
+            }
+
+            #controls {
+                font-size: 14px;
+            }
+        }
+    </style>
+    <script>
+        let minTemps = [];
+        let maxTemps = [];
+        let bars = [];
+        let selectedIndex = null;
+
+        function generateChart() {
+            const chart = document.getElementById('chart');
+            const info = document.getElementById('info');
+            const month = document.getElementById('monthInput').value;
+            chart.innerHTML = "";
+            minTemps = [];
+            maxTemps = [];
+            bars = [];
+            selectedIndex = null;
+
+            let globalMin = Infinity;
+            let globalMax = -Infinity;
+
+            for (let i = 0; i < 30; i++) {
+                const min = Math.floor(Math.random() * 10) + 5;
+                const max = min + Math.floor(Math.random() * 15) + 5;
+                minTemps.push(min);
+                maxTemps.push(max);
+
+                if (min < globalMin) globalMin = min;
+                if (max > globalMax) globalMax = max;
+
+                const bar = document.createElement('div');
+                bar.className = 'bar';
+                const minHeight = min;
+                const maxHeight = max - min;
+
+                bar.innerHTML = `
+                    <div class="day-label">${i + 1}</div>
+                    <div class="max-temp" style="height:${maxHeight * 10}px">${max}°C</div>
+                    <div class="min-temp" style="height:${minHeight * 10}px">${min}°C</div>
+                `;
+                chart.appendChild(bar);
+                bars.push(bar);
+            }
+
+            info.innerHTML = `
+                Номер месяца: <strong>${month}</strong><br>
+                Минимальная температура: <span style="color: #7b1fa2;">${globalMin}°C</span><br>
+                Максимальная температура: <span style="color: #9c4dcc;">${globalMax}°C</span>
+            `;
+        }
+
+        function highlightDay() {
+            const input = document.getElementById('dayInput').value;
+            const index = parseInt(input) - 1;
+
+            if (index >= 0 && index < 30) {
+                if (selectedIndex !== null) {
+                    bars[selectedIndex].querySelector('.min-temp').classList.remove('purple-min');
+                    bars[selectedIndex].querySelector('.max-temp').classList.remove('purple-max');
+                }
+
+                bars[index].querySelector('.min-temp').classList.add('purple-min');
+                bars[index].querySelector('.max-temp').classList.add('purple-max');
+                selectedIndex = index;
+                const min = minTemps[index];
+                const max = maxTemps[index];
+
+                 document.getElementById('info').innerHTML = `
+                    День: <strong>${index + 1}</strong><br>
+                    Минимальная температура: <span style="color: #7b1fa2;">${min}°C</span><br>
+                    Максимальная температура: <span style="color: #9c4dcc;">${max}°C</span>
+                `;
+            } else {
+                alert("Введите номер дня от 1 до 30");
+            }
+        }
+        window.onload = generateChart;
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+        <hr>
+    </header>
+
+    <main>
+        <div id="chart"></div>
+
+        <div id="controls">
+            <label>Номер месяца:
+                <input type="number" id="monthInput" min="1" max="12" value="4">
+            </label>
+            <button onclick="generateChart()">Сгенерировать</button>
+
+            <br><br>
+            <label>Номер дня:
+                <input type="number" id="dayInput" min="1" max="30">
+            </label>
+            <button onclick="highlightDay()">Показать</button>
+
+            <div id="info"></div>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        &copy; Анастасия Чикирисова, ФБИ-33, 2 курс, 2025
+    </footer>
+</body>
+</html>
